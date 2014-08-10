@@ -1,0 +1,26 @@
+version: "{build}"
+
+assembly_info:
+  patch: false
+
+platform:
+  - Any CPU
+
+configuration:
+  - Release
+
+verbosity: minimal
+
+before_build:
+  - cmd: nuget restore
+
+artifacts:
+  - path: Zoltu.Collections.Generic.NotNull/bin/**/*.nupkg
+  - path: Zoltu.Collections.Generic.NotNull/bin/**/*.dll
+  - path: Zoltu.Collections.Generic.NotNull/bin/**/*.pdb
+
+deploy:
+  provider: NuGet
+  api_key:
+    secure: X6YnwwH05dy0122NypnAz4w1ti39JQ49I8bQqDsLHzUwAp1rhvm6yvPo03EpwD8e
+
