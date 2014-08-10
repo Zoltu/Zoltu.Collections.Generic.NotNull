@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Not Null Generic Collections")]
-[assembly: AssemblyDescription("A set of collections that don't allow for any null values in them.")]
+[assembly: AssemblyDescription("A set of collections that don't allow for any null values in them.  Includes full support for Microsoft Code Contracts.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zoltu")]
 [assembly: AssemblyProduct("Zoltu.Collections.Generic.NotNull")]
