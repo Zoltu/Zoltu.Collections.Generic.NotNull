@@ -15,6 +15,6 @@
 		</references>
 	</metadata>
 	<files>
-		<file src="CodeContracts\*" target="lib\net451\CodeContracts" />
+		<file src="CodeContracts\*.dll" target="lib\net451\CodeContracts" />
 	</files>
 </package>
