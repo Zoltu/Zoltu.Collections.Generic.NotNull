@@ -9,6 +9,8 @@ namespace Zoltu.Linq.NotNull
 	{
 		public static INotNullEnumerable<T> NotNull<T>(this IEnumerable<T> source)
 		{
+			Contract.Ensures(Contract.Result<INotNullEnumerable<T>>() != null);
+
 			return new NullToNotNullEnumerable<T>(source);
 		}
 
@@ -24,8 +26,9 @@ namespace Zoltu.Linq.NotNull
 
 			public NullToNotNullEnumerable(IEnumerable<T> backingEnumerable)
 			{
-				Contract.Requires(backingEnumerable != null);
-				_backingEnumerable = backingEnumerable;
+				_backingEnumerable = (backingEnumerable != null)
+					? backingEnumerable
+					: new T[] { };
 			}
 
 			public INotNullEnumerator<T> GetEnumerator()
