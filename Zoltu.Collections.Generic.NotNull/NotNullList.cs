@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using Zoltu.Linq.NotNull;
 
 namespace Zoltu.Collections.Generic.NotNull
 {
@@ -58,7 +59,7 @@ namespace Zoltu.Collections.Generic.NotNull
 
 		public INotNullEnumerator<T> GetEnumerator()
 		{
-			return new NotNullEnumerator(_list);
+			return new NullToNotNullEnumerator<T>(_list.GetEnumerator());
 		}
 
 		public Int32 IndexOf(T item)
@@ -82,40 +83,5 @@ namespace Zoltu.Collections.Generic.NotNull
 		{
 			_list.RemoveAt(index);
 		}
-
-		private class NotNullEnumerator : INotNullEnumerator<T>
-		{
-			private readonly IEnumerator<T> _backingEnumerator;
-
-			[ContractInvariantMethod]
-			private void ContractInvariants()
-			{
-				Contract.Invariant(_backingEnumerator != null);
-			}
-
-			public NotNullEnumerator(IList<T> list)
-			{
-				Contract.Requires(list != null);
-				_backingEnumerator = list.GetEnumerator();
-			}
-
-			public T Current
-			{
-				get
-				{
-					var current = _backingEnumerator.Current;
-					Contract.Assume(current != null);
-					return current;
-				}
-			}
-
-			public Boolean MoveNext()
-			{
-				return _backingEnumerator.MoveNext();
-			}
-
-			public void Dispose() { }
-		}
-
 	}
 }

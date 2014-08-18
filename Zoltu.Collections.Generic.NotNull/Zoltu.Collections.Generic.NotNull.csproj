@@ -120,11 +120,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="NotNullHashSet.cs" />
     <Compile Include="INotNullCollection.cs" />
     <Compile Include="INotNullDictionary.cs" />
     <Compile Include="INotNullEnumerator.cs" />
     <Compile Include="INotNullList.cs" />
-    <Compile Include="Linq.cs" />
+    <Compile Include="INotNullSet.cs" />
+    <Compile Include="Linq\NotNullEnumerable.cs" />
+    <Compile Include="Linq\NotNullToNullEnumerable.cs" />
+    <Compile Include="Linq\NullToNotNullEnumerable.cs" />
     <Compile Include="NotNullDictionary.cs" />
     <Compile Include="NotNullKeyValuePair.cs" />
     <Compile Include="NotNullList.cs" />
