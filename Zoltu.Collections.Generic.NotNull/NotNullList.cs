@@ -59,7 +59,7 @@ namespace Zoltu.Collections.Generic.NotNull
 
 		public INotNullEnumerator<T> GetEnumerator()
 		{
-			return new NullToNotNullEnumerator<T>(_list.GetEnumerator());
+			return _list.NotNull().GetEnumerator();
 		}
 
 		public Int32 IndexOf(T item)

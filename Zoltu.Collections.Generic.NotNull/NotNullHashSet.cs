@@ -72,7 +72,7 @@ namespace Zoltu.Collections.Generic.NotNull
 
 		public INotNullEnumerator<T> GetEnumerator()
 		{
-			return new NullToNotNullEnumerator<T>(_backingHashSet.GetEnumerator());
+			return _backingHashSet.NotNull().GetEnumerator();
 		}
 
 		public void ExceptWith(INotNullEnumerable<T> other)
