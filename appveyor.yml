@@ -1,3 +1,9 @@
+branches:
+  only:
+    - master
+
+skip_tags: true
+
 version: "{build}"
 
 assembly_info:
@@ -9,10 +15,12 @@ platform:
 configuration:
   - Release
 
-verbosity: minimal
-
 before_build:
   - cmd: nuget restore
+
+build:
+  project: Zoltu.Collections.Generic.NotNull.sln
+  verbosity: minimal
 
 artifacts:
   - path: Zoltu.Collections.Generic.NotNull/bin/**/*.nupkg
